@@ -1,0 +1,9 @@
+type Mutation {
+  # Placeholder
+  hi: String
+}
+
+type Query {
+  # Placeholder
+  hi: String
+}
