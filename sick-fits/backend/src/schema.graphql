@@ -1,3 +1,6 @@
+## NOTES
+# This is the public-facing API that we'll interface with
+
 # import * from './generated/prisma.graphql'
 
 type Mutation {

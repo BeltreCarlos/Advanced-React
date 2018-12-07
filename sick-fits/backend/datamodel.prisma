@@ -1,3 +1,9 @@
+## NOTES
+# The schema for Prisma and for the database that lives underneath Prisma
+# Every time a change is made to this data model, we have to deploy it to Prisma (yarn deploy)
+# @unique is a Prisma directive
+# DateTime type is exposed by Prisma
+
 type User {
   id: ID! @unique
   name: String!
