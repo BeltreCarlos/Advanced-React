@@ -9,10 +9,10 @@ const Mutations = {
         }
       },
       info
-    );
+    )
 
-    return item;
+    return item
   }
-};
+}
 
-module.exports = Mutations;
+module.exports = Mutations
