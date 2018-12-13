@@ -9,7 +9,7 @@
     "start": "next start",
     "test": "NODE_ENV=test jest --watch",
     "heroku-postbuild": "next build",
-    "format": "prettier --write \"pages/**/*.js\" \"components/**/*.js\"",
+    "format": "prettier --write *.js \"pages/**/*.js\" \"components/**/*.js\"",
     "lint": "eslint src",
     "precommit": "lint-staged"
   },
