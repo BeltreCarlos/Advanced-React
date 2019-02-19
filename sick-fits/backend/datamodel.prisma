@@ -4,10 +4,23 @@
 # - @unique is a Prisma directive
 # - DateTime type is exposed by Prisma
 
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
+
 type User {
   id: ID! @unique
   name: String!
-  email: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission]
 }
 
 type Item {
@@ -16,8 +29,8 @@ type Item {
   description: String!
   image: String
   largeImage: String
-  price: Int!
+  price: Int! # @default(value: 0)
   createdAt: DateTime!
   updatedAt: DateTime!
-  # user: User!
+  # user: User! @relation(name: "User")
 }

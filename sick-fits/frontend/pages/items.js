@@ -1,3 +1,4 @@
-import home from './index.js'
+import Items from './index.js'
 
-export default home
+// The items page is the same as the homepage
+export default Items
