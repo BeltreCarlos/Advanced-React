@@ -4,12 +4,20 @@ const Query = {
   items: forwardTo('db'),
   item: forwardTo('db'),
   // Metadata about the type like pageInfo, count, etc...
-  itemsConnection: forwardTo('db')
-  // async items(parent, args, ctx, info) {
-  //   const items = await ctx.db.query.items()
+  itemsConnection: forwardTo('db'),
+  currentUser(parent, args, ctx, info) {
+    // check if there is a current user ID
+    if (!ctx.request.userId) {
+      return null
+    }
 
-  //   return items
-  // }
+    return ctx.db.query.user(
+      {
+        where: { id: ctx.request.userId }
+      },
+      info
+    )
+  }
 }
 
 module.exports = Query
