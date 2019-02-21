@@ -3,11 +3,14 @@ import Link from 'next/link'
 
 import NavStyles from './styles/NavStyles'
 import User from './User'
+import Signout from './Signout'
 
 const Nav = () => {
   return (
     <User>
-      {({ data: { currentUser } }) => {
+      {({ data }) => {
+        const { currentUser } = data
+
         return (
           <NavStyles>
             <Link href="/items">
@@ -24,6 +27,7 @@ const Nav = () => {
                 <Link href="/me">
                   <a>Account</a>
                 </Link>
+                <Signout />
               </Fragment>
             )}
             {!currentUser && (
