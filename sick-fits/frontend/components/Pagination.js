@@ -25,6 +25,7 @@ const Pagination = props => {
       {({ data, loading, error }) => {
         if (loading) return <p>Loading...</p>
         if (error) return <p>{error.message}</p>
+        if (!data) return null
 
         const count = data.itemsConnection.aggregate.count
         const pages = Math.ceil(count / perPage)

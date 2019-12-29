@@ -9,6 +9,8 @@ const Nav = () => {
   return (
     <User>
       {({ data }) => {
+        if (!data) return null
+
         const { currentUser } = data
 
         return (
