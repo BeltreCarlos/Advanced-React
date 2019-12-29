@@ -1,9 +1,3 @@
-## NOTES
-# The schema for Prisma and for the database that lives underneath Prisma
-# - Every time a change is made to this data model, we have to deploy it to Prisma (yarn deploy)
-# - @unique is a Prisma directive
-# - DateTime type is exposed by Prisma
-
 enum Permission {
   ADMIN
   USER
@@ -14,23 +8,25 @@ enum Permission {
 }
 
 type User {
-  id: ID! @unique
+  id: ID! @id
   name: String!
   email: String! @unique
   password: String!
   resetToken: String
   resetTokenExpiry: Float
-  permissions: [Permission]
+  permissions: [Permission] @scalarList(strategy: RELATION)
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
 }
 
 type Item {
-  id: ID! @unique
+  id: ID! @id
   title: String!
   description: String!
   image: String
   largeImage: String
-  price: Int! # @default(value: 0)
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  # user: User! @relation(name: "User")
+  price: Int!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  user: User! @relation(name: "User")
 }
